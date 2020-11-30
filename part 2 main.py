@@ -5,7 +5,7 @@ from euler_rocket import *
 x=0
 y=0
 dt=0.0001
-v0=1150
+v0=690
 theta0=50
 
 

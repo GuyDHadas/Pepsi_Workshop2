@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from euler_rocket import *
 
 
-G = 9.81
 
 print("Guy is in the git project, update if you see this and write below")
 print("ran was here")
@@ -24,5 +23,7 @@ def kassam_in_vaccum(dt, x_0, y_0, v_x0, v_y0):
         x_n, y_n, v_xn, v_yn = part_two_rocket_iteration()
     return x, y
 
+if __name__ == '__main__':
+    kassam_in_vaccum()
 
 

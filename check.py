@@ -5,11 +5,6 @@ from euler_rocket import *
 
 G = 9.81
 
-print("Guy is in the git project, update if you see this and write below")
-print("ran was here")
-print("Guy likes to eat " + str(np.pi))
-print( "Omer has a unique sentence")
-
 
 def kassam_in_vaccum(dt, x_0, y_0, v_x0, v_y0):
     x_n = x_0

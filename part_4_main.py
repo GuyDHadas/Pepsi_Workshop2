@@ -21,7 +21,6 @@ def hit_location(theta):
 def vis_hit_location():
     hit = []
     for theta in range(1, 90, 2):
-        print(theta)
         hit.append(hit_location(theta))
     plt.plot(range(1, 90, 2), hit)
     plt.xlabel(r'$\theta$', size=15)
@@ -41,9 +40,18 @@ def secant_iteration(theta_n_minus_1, theta_n, f_n_minus_1, f_n):
     return theta_n_plus_1
 
 def show_theta():
-    x_0=
-    x=np.array([])
+    x_0=hit_location(50)
+    x_last=hit_location(70)
+    x_lst=np.arange(x_last,x_0,abs((x_last-x_0)/20))
     theta=np.array([])
+    for x in x_lst:
+        theta=np.concatenate((theta,[secant_loop(x)]))
+    plt.plot(x_lst, theta)
+    plt.xlabel(r'$x$  [$\mathrm{m}$]', size=15)
+    plt.ylabel(r'$theta$', size=15)
+    plt.title("Part 3- x dest Converges? ")
+    plt.grid()
+    plt.show()
 
 
 def secant_loop(x_dest):
@@ -59,9 +67,9 @@ def secant_loop(x_dest):
         n += 1
     return theta_n
 if __name__ == '__main__':
-
-    vis_hit_location()
-print(secant_loop(3418.4854))
+    show_theta()
+    #vis_hit_location()
+#print(secant_loop(3418.4854))
 
 
 

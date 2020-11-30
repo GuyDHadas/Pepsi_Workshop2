@@ -40,6 +40,11 @@ def secant_iteration(theta_n_minus_1, theta_n, f_n_minus_1, f_n):
     theta_n_plus_1 = theta_n - f_n * (theta_n - theta_n_minus_1) / (f_n - f_n_minus_1)
     return theta_n_plus_1
 
+def show_theta():
+    x_0=
+    x=np.array([])
+    theta=np.array([])
+
 
 def secant_loop(x_dest):
     theta_n_minus_1 = 35

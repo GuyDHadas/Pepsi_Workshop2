@@ -11,7 +11,7 @@ dt = 0.0001
 v_0 = 350
 theta0 = 50
 friction = 0.0003348
-prenct=0.7
+
 
 def part_five_hit_location(theta, x_0):
     x_array, y_array = kassam_in_air(dt, x_0, y_0, v_0 * np.cos(theta * np.pi / 180),
@@ -30,7 +30,7 @@ def find_minimal_distance(x_0_first, theta_0_first, x_0_second, theta_0_second,f
     return min(distances)
 
 
-def min_distance_kassam(theta):
+def min_distance_kassam(theta, prenct):
     x,y=kassam_in_air(dt,x_0,y_0,v_0 * np.cos(theta0 * np.pi / 180),
                                      v_0 * np.sin(theta0 * np.pi / 180),friction)
     #print(x[-1])
@@ -44,10 +44,10 @@ def part_five_secant_iteration(theta_n_minus_1, theta_n, f_n_minus_1, f_n):
     return theta_n_plus_1
 
 
-def part_5_secant_loop():
+def part_5_secant_loop(prenct):
     theta_n_minus_1 = 110
     theta_n = 170
-    f_values = [min_distance_kassam(theta_n_minus_1), min_distance_kassam(theta_n)]
+    f_values = [min_distance_kassam(theta_n_minus_1, prenct), min_distance_kassam(theta_n, prenct)]
     n = 1
     while np.abs(theta_n - theta_n_minus_1) > 0.01:
         theta_n_plus_1 = part_five_secant_iteration(theta_n_minus_1, theta_n, f_values[n-1], f_values[n])
@@ -82,3 +82,5 @@ def visual():
     plt.show()
 visual()
 
+def sanity_check():
+    print(part_5_secant_loop(1)) # we expect to get the same angel (50 degrees)

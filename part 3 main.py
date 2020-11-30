@@ -13,5 +13,5 @@ def kassam_in_air (dt , x_0 , y_0 , vx_0 , vy_0, friction_coefficient):
     while y_n > 10 ** (-9) or len(y)<2:
         x.append(x_n)
         y.append(y_n)
-        x_n, y_n, vx_n, vy_n = part_three_rocket_iteration(x_n, y_n, vx_n, vy_n, dt, friction_coefficient):
+        x_n, y_n, vx_n, vy_n = part_three_rocket_iteration(x_n, y_n, vx_n, vy_n, dt, friction_coefficient)
     return x, y

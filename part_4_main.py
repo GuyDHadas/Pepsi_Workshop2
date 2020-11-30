@@ -39,6 +39,7 @@ def secant_iteration(theta_n_minus_1, theta_n, f_n_minus_1, f_n):
     theta_n_plus_1 = theta_n - f_n * (theta_n - theta_n_minus_1) / (f_n - f_n_minus_1)
     return theta_n_plus_1
 
+
 def show_theta():
     x_0=hit_location(50)
     x_last=hit_location(70)
@@ -66,6 +67,8 @@ def secant_loop(x_dest):
         f_values.append(function_to_find_root(theta_n, x_dest))
         n += 1
     return theta_n
+
+
 if __name__ == '__main__':
     show_theta()
     #vis_hit_location()

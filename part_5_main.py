@@ -38,5 +38,24 @@ def min_distance_kassam(theta):
     print(loc)
     return find_minimal_distance(x_0,theta0,loc,theta,friction,friction*0.7)
 
+
+def part_five_secant_iteration(theta_n_minus_1, theta_n, f_n_minus_1, f_n):
+    theta_n_plus_1 = theta_n - f_n * (theta_n - theta_n_minus_1) / (f_n - f_n_minus_1)
+    return theta_n_plus_1
+
+
+def part_5_secant_loop():
+    theta_n_minus_1 = 110
+    theta_n = 170
+    f_values = [min_distance_kassam(theta_n_minus_1), min_distance_kassam(theta_n)]
+    n = 1
+    while np.abs(theta_n - theta_n_minus_1) > 0.01:
+        theta_n_plus_1 = part_five_secant_iteration(theta_n_minus_1, theta_n, f_values[n-1], f_values[n])
+        theta_n_minus_1 = theta_n
+        theta_n = theta_n_plus_1
+        f_values.append(min_distance_kassam(theta_n))
+        n += 1
+    return theta_n
+
 print(min_distance_kassam(130))
 

@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+
 G = 9.81
 
 
@@ -10,3 +11,8 @@ def part_one_rocket_iteration(x_n, y_n, vx_n, vy_n, dt):
     y_n1 = y_n + dt * vy_n
     vx_n1 = vx_n + dt * 0
     vy_n1 = vy_n + dt * (-G)
+    return x_n1, y_n1, vx_n1, vy_n1
+
+
+def part_one_visualisation(x, y, dt):
+    t_array = np.array(dt)

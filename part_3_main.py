@@ -6,7 +6,7 @@ from euler_rocket import *
 x=0
 y=0
 dt=0.0001
-v0=690
+v0=350
 theta0=50
 friction=0.0003348
 

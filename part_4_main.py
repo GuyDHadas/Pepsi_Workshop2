@@ -49,7 +49,7 @@ def show_theta():
     plt.plot(x_lst, theta)
     plt.xlabel(r'$x$  [$\mathrm{m}$]', size=15)
     plt.ylabel(r'$theta$', size=15)
-    plt.title("Part 3- x dest Converges? ")
+    plt.title("Part 4- theta as x ")
     plt.grid()
     plt.show()
 

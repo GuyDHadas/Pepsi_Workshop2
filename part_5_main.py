@@ -19,15 +19,21 @@ def part_five_hit_location(theta, x_0):
     return x_array[-1]
 
 
-def find_minimal_distance(x_0_first, theta_0_first, x_0_second, theta_0_second):
+def find_minimal_distance(x_0_first, theta_0_first, x_0_second, theta_0_second,friction_first,friction_second):
     x_array_first, y_array_first = kassam_in_air(dt, x_0_first, y_0, v_0 * np.cos(theta_0_first * np.pi / 180),
-                                     v_0 * np.sin(theta_0_first * np.pi / 180), friction)
+                                     v_0 * np.sin(theta_0_first * np.pi / 180), friction_first)
     x_array_second, y_array_second = kassam_in_air(dt, x_0_second, y_0, v_0 * np.cos(theta_0_second * np.pi / 180),
-                                     v_0 * np.sin(theta_0_second * np.pi / 180), friction)
+                                     v_0 * np.sin(theta_0_second * np.pi / 180), friction_second)
     distances = []
     for i in range(min(len(x_array_first), len(x_array_second))):
         distances.append((x_array_first[i] - x_array_second)**2 + (y_array_first[i] - y_array_second[i])**2)
     return min(distances)
 
 
+def min_distance_kassam(theta):
+    x,y=kassam_in_air(dt,x_0,y_0,v_x0,v_y0,friction)
+    loc=0.75*x[-1]
+    return find_minimal_distance(x_0,theta,loc,theta,friction,friction*0.7)
+
+print(min)
 

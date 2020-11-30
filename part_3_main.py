@@ -30,7 +30,14 @@ def part_three_check_converges(x_0 , y_0 , vx_0 , vy_0, friction_coefficient):
     dt_lst = 10 ** log_dt_lst
     x=np.array([])
     for dt in dt_lst:
-        x,y=kassam_in_air(dt,x_0,y_0,vx_0,vt_0,friction,co)
+        x_tag,y=kassam_in_air(dt,x_0,y_0,vx_0,vy_0,friction)
+        x=np.concatenate((x,[x_tag[-1]]))
+    plt.loglog(dt_lst, x)
+    plt.xlabel(r'$dt in log$ [$\mathrm{m}$]', size=15)
+    plt.ylabel(r'$x$ [$\mathrm{m}$]', size=15)
+    plt.title("Part 3- x dest Converges? ")
+    plt.grid()
+    plt.show()
 
 
 if __name__ == '__main__':

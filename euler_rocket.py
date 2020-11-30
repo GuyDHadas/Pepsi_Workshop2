@@ -33,3 +33,5 @@ def part_three_rocket_iteration(x_n, y_n, vx_n, vy_n, dt, friction_coefficient):
     vx_n1 = vx_n - dt * (friction_coefficient * vx_n * np.sqrt(vx_n**2 + vy_n**2))
     vy_n1 = vy_n - dt * (G + friction_coefficient * vy_n * np.sqrt(vx_n**2 + vy_n**2))
     return x_n1, y_n1, vx_n1, vy_n1
+
+

@@ -23,6 +23,13 @@ def kassam_in_air (dt , x_0 , y_0 , vx_0 , vy_0, friction_coefficient):
         x_n, y_n, vx_n, vy_n = part_three_rocket_iteration(x_n, y_n, vx_n, vy_n, dt, friction_coefficient)
     return x, y
 
+def part_three_check_converges(x_0 , y_0 , vx_0 , vy_0, friction_coefficient):
+    log_dt_lst = np.linspace(-6, 1, 50)
+    dt_lst = 10 ** log_dt_lst
+    x=np.array([])
+    for dt in dt_lst:
+        x,y=kassam_in_air(dt,x_0,y_0,vx_0,vt_0,friction,co)
+
 
 if __name__ == '__main__':
     v_x0 = v0*np.cos(theta0*np.pi / 180.)

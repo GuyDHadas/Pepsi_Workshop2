@@ -45,7 +45,7 @@ def part_five_secant_iteration(theta_n_minus_1, theta_n, f_n_minus_1, f_n):
 
 
 def part_5_secant_loop(prenct):
-    theta_n_minus_1 = 110
+    theta_n_minus_1 = 90
     theta_n = 170
     f_values = [min_distance_kassam(theta_n_minus_1, prenct), min_distance_kassam(theta_n, prenct)]
     n = 1
@@ -67,11 +67,12 @@ def visual():
     distances = []
     for i in range(min(len(x), len(x_tag))):
         distances.append((x_tag[i] - x_tag[i]) ** 2 + (y[i] - y_tag[i]) ** 2)
-    index=np.mask_indices(distances)
-    x=x[0:index]
-    y=y[0:index]
-    x_tag=x_tag[0:index]
-    y_tag=y_tag[0:index]
+    index=np.min(distances)
+    index_in=distances.index(index)
+    x=x[0:index_in]
+    y=y[0:index_in]
+    x_tag=x_tag[0:index_in]
+    y_tag=y_tag[0:index_in]
     plt.plot(x, y)
     plt.plot(x_tag,y_tag)
     plt.legend(['kassam','kipat barzel'])

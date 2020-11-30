@@ -26,7 +26,7 @@ def kassam_in_air (dt , x_0 , y_0 , vx_0 , vy_0, friction_coefficient):
     return x, y
 
 def part_three_check_converges(x_0 , y_0 , vx_0 , vy_0, friction_coefficient):
-    log_dt_lst = np.linspace(-1, -5, 25)
+    log_dt_lst = np.linspace(-1, -5, 30)
     dt_lst = 10 ** log_dt_lst
     x=np.array([])
     for dt in dt_lst:

@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from part_2_main import *
 from part_3_main import *
+from part_4_main import *
 from euler_rocket import *
 
 x_0 = 0
@@ -23,9 +24,10 @@ def find_minimal_distance(x_0_first, theta_0_first, x_0_second, theta_0_second):
                                      v_0 * np.sin(theta_0_first * np.pi / 180), friction)
     x_array_second, y_array_second = kassam_in_air(dt, x_0_second, y_0, v_0 * np.cos(theta_0_second * np.pi / 180),
                                      v_0 * np.sin(theta_0_second * np.pi / 180), friction)
-    distanve
+    distances = []
     for i in range(min(len(x_array_first), len(x_array_second))):
-        distances =
+        distances.append((x_array_first[i] - x_array_second)**2 + (y_array_first[i] - y_array_second[i])**2)
+    return min(distances)
 
 
 

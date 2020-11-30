@@ -26,14 +26,17 @@ def find_minimal_distance(x_0_first, theta_0_first, x_0_second, theta_0_second,f
                                      v_0 * np.sin(theta_0_second * np.pi / 180), friction_second)
     distances = []
     for i in range(min(len(x_array_first), len(x_array_second))):
-        distances.append((x_array_first[i] - x_array_second)**2 + (y_array_first[i] - y_array_second[i])**2)
+        distances.append((x_array_first[i] - x_array_second[i])**2 + (y_array_first[i] - y_array_second[i])**2)
     return min(distances)
 
 
 def min_distance_kassam(theta):
-    x,y=kassam_in_air(dt,x_0,y_0,v_x0,v_y0,friction)
+    x,y=kassam_in_air(dt,x_0,y_0,v_0 * np.cos(theta0 * np.pi / 180),
+                                     v_0 * np.sin(theta0 * np.pi / 180),friction)
+    print(x[-1])
     loc=0.75*x[-1]
-    return find_minimal_distance(x_0,theta,loc,theta,friction,friction*0.7)
+    print(loc)
+    return find_minimal_distance(x_0,theta0,loc,theta,friction,friction*0.7)
 
-print(min)
+print(min_distance_kassam(130))
 
